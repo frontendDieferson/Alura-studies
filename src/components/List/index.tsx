@@ -1,6 +1,7 @@
 import React from "react";
 import { isTemplateExpression } from "typescript";
-
+import Item from "./Item";
+import style from './List.module.scss'
 function List() {
     const item = [{
         tarefa: 'React',
@@ -8,19 +9,17 @@ function List() {
     }, {
         tarefa: 'Javascript',
         tempo: '01:00:00',
-    }, {
-        tarefa: 'ReactNative',
-        tempo: '03:00:00'
-    }]
+    }, 
+    ]
   return (
-    <aside>
+    <aside className={style.listaTarefas}>
       <h2>Estudos do dia</h2>
       <ul>
         {item.map((item, index) => (
-            <li key={index}>
-                <h3>{item.tarefa}</h3>
-                <span>{item.tempo}</span>
-            </li>
+           <Item 
+            key={index}
+            {...item}
+           />
         ))}
         <li>
           <h3> React</h3>
